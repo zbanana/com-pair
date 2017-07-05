@@ -25,7 +25,10 @@ app.use(methodOverride("_method"));
 // Initialize multer
 var upload = multer({
   dest: "public/uploads/"
-})
+});
+
+// CONNECT TO DB
+mongoose.connect(process.env.DB || "mongodb://localhost/compair");
 
 // ***************
 // PASSPORT CONFIG
