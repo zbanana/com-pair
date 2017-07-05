@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/user");
+var passport = require("passport");
+
 
 router.get("/register", function(req, res) {
 	res.render("register");
