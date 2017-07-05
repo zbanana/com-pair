@@ -4,7 +4,6 @@ var express 		= require("express"),
 	LocalStrategy  	= require("passport-local"),
 	mongoose	   	= require("mongoose"),
 	expressSession  = require("express-session"),
-	multer			= require("multer"),
 	User 			= require("./models/user")
 	app				= express();
 
@@ -22,10 +21,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 // Set method override to listen for _method string
 app.use(methodOverride("_method"));
-// Initialize multer
-var upload = multer({
-  dest: "public/uploads/"
-});
 
 // CONNECT TO DB
 mongoose.connect(process.env.DB || "mongodb://localhost/compair");
@@ -45,6 +40,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Pass the user in every request
+/*app.use(function(req, res, next) {
+	res.locals.currentUser = req.user;
+	next();
+})	*/
 
 // Set default url for the different route types
 app.use("/compairs", compairRoutes);
