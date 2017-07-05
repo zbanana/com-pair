@@ -1,0 +1,19 @@
+<h1>New compair</h1>
+<form action="/compairs" method="post" enctype="multipart/form-data">
+	<input type="text" name="compair[title]" placeholder="title">
+	<textarea name="compair[description]" placeholder="description"></textarea>
+	<input type="file" name="image">
+	<input type="file" name="image">
+	<button>Create</button>
+</form>
+
+	<% if (!currentUser) { %>
+		<div>
+			<a href="/register">Sign up</a>		
+		</div>
+		<div>
+			<a href="/login">Sign in</a>
+		</div>
+	<% } else { %>
+		<p>Signed in as <%= currentUser.username%></p>
+	<% } %>

@@ -1,0 +1,18 @@
+<h1>Compairs list</h1>
+<% compairs.forEach(function(compair) { %>
+	<div><%= compair %></div>
+<% }) %>
+
+<div>
+	<% if (!currentUser) { %>
+		<div>
+			<a href="/register">Sign up</a>		
+		</div>
+		<div>
+			<a href="/login">Sign in</a>
+		</div>
+	<% } else { %>
+		<p>Signed in as <%= currentUser.username%></p>
+		<a href="/compairs/new">Create compair!</a>
+	<% } %>
+</div>

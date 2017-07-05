@@ -16,6 +16,8 @@ router.post("/register", function(req, res) {
 			return res.redirect("/register");
 		}
 		passport.authenticate("local")(req, res, function() {
+			console.log("User created and logged in");
+			console.log(user);
 			res.redirect("/compairs");
 		});
 	});

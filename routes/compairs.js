@@ -20,8 +20,10 @@ router.get("/new", function(req,res) {
 	res.render("compairs/new");
 });
 
-router.post("/", multer().array("image", 2), function(req, res) {
+router.post("/", upload.array("image", 2), function(req, res) {
 	var compair = req.body.compair;
+	console.log("USER");
+	console.log(req.user);
 	compair.author = req.user;
 	compair.images = [
 		{
@@ -43,7 +45,7 @@ router.post("/", multer().array("image", 2), function(req, res) {
 		} else {
 			console.log("Compair entry added");
 			console.log(compair);
-			res.redirect("/");
+			res.redirect("/compairs");
 		}
 	});
 });
