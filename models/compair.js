@@ -10,7 +10,7 @@ var compairSchema = new mongoose.Schema({
 				amount: Number,
 				users: [
 					{
-						type: Mongoose.Schema.Types.ObjectId,
+						type: mongoose.Schema.Types.ObjectId,
 						ref: "User"
 					}
 				]
@@ -19,12 +19,12 @@ var compairSchema = new mongoose.Schema({
 	],
 	comments: [
 		{
-			type: Mongoose.Schema.Types.ObjectId,
+			type: mongoose.Schema.Types.ObjectId,
 			ref: "Comment"
 		}
 	],
 	author: {
-		type: Mongoose.Schema.Types.ObjectId,
+		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
 	},
 	created_at: {
